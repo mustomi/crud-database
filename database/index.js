@@ -1,31 +1,23 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import pg from 'pg'
 
-const Client = pg.Client
-
-const db = new Client({
-    host: "localhost",
-    user: "postgres",
-    port: 5432,
-    password: "postgres",
-    database: "postgres"
-})
+import db from './config/db.js'
 
 const app = express()
 
-app.listen(3000,() => {
-    console.log('server running in port 3000')
-})
-
 db.connect(err => {
-    if(err) {
-        console.log('err.massage')
-    } else {
-        console.log('conected')
-    }
+    if(err) throw err
+    console.log('database conected ...') 
+
+    app.get("/", (req, res) => {
+        db.query(`SELECT * FROM users`, (err, result) => {
+            const users = JSON.parse(JSON.stringify(result))
+            console.log(users.rows)
+            res.send(users.rows)
+        })
+    })
 })
 
-app.get("/", (req, res) => {
-    console.log(res.send("ROUTE OPEN ...."))
+app.listen(5174,() => {
+    console.log('server running in port 5174')
 })
