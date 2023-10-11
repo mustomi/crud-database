@@ -14,8 +14,8 @@ const db = new Client({
 
 const app = express()
 
-app.listen(5174,() => {
-    console.log('server running in port 5174')
+app.listen(3000,() => {
+    console.log('server running in port 3000')
 })
 
 db.connect(err => {
@@ -26,3 +26,6 @@ db.connect(err => {
     }
 })
 
+app.get("/", (req, res) => {
+    console.log(res.send("ROUTE OPEN ...."))
+})

@@ -4,6 +4,7 @@
   "description": "",
   "type": "module",
   "main": "index.js",
+  "homepage": "http://mustomi.github.com/crud-database/database/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
