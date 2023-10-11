@@ -1,11 +1,28 @@
-import Express from ('express')
+import express from 'express'
 import bodyParser from 'body-parser'
+import pg from 'pg'
 
-import db from './connection'
+const Client = pg.Client
 
-PORT = 5174
+const db = new Client({
+    host: "localhost",
+    user: "postgres",
+    port: 5432,
+    password: "postgres",
+    database: "postgres"
+})
 
 const app = express()
 
-app.listen(PORT, )
+app.listen(5174,() => {
+    console.log('server running in port 5174')
+})
+
+db.connect(err => {
+    if(err) {
+        console.log('err.massage')
+    } else {
+        console.log('conected')
+    }
+})
 
