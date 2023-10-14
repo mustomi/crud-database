@@ -8,13 +8,13 @@ const app = express()
 db.connect(err => {
     if(err) throw err
     console.log('database conected ...') 
+})
 
-    app.get("/", (req, res) => {
-        db.query(`SELECT * FROM users`, (err, result) => {
-            const users = JSON.parse(JSON.stringify(result))
-            console.log(users.rows)
-            res.send(users.rows)
-        })
+app.get("/users",(req, res) => {
+    db.query(`SELECT * FROM users`, (err, result) => {
+        const users = JSON.parse(JSON.stringify(result))
+        console.log(users.rows)
+        res.send(users.rows)
     })
 })
 
