@@ -1,9 +1,11 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 
 import db from './config/db.js'
 
 const app = express()
+app.use(cors())
 
 db.connect(err => {
     if(err) throw err
