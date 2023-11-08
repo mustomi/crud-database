@@ -12,6 +12,15 @@ db.connect(err => {
     console.log('database conected ...') 
 })
 
+app.get("/",(req, res) => {
+    res.json({
+        name: "mustomi",
+        role: "admin",
+        email: "mustomi07@gmail.com",
+        description: "full akses"
+    })
+})
+
 app.get("/users",(req, res) => {
     db.query(`SELECT * FROM users`, (err, result) => {
         const users = JSON.parse(JSON.stringify(result))
