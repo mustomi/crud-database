@@ -1,0 +1,15 @@
+GET https://266c-52-230-16-141.ngrok-free.app/users
+
+###
+GET https://266c-52-230-16-141.ngrok-free.app
+
+###
+POST https://266c-52-230-16-141.ngrok-free.app
+content-type: application/json
+
+{
+    "name": "Jono",
+    "role": "user",
+    "email": "jono12@gmail.com",
+    "description": "akses user"
+}

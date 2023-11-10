@@ -1,18 +1,4 @@
-import React, {useState, useEffect} from "react"
-import axios from "axios"
-
 function App() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    getUsers();
-  },[]);
-
-  const getUsers = async () => {
-    const response = await axios.get('http://localhost:5174/users');
-    console.log(response.data);
-  }
-
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center">
       <div className="row w-100 mt-5 d-flex justify-content-center align-items-center">
